@@ -1,0 +1,11 @@
+{
+    "version": "0.1.0",
+    "name": "sdk-token",
+    "description": "Library to verify token auto-signed",
+    "main": "./lib",
+    "dependencies": {
+        "jsonwebtoken": "^4.x.x"
+    },
+    "author": "Angie Laurenti <angie.laurenti@ysance.com>",
+    "readmeFilename": "README.md"
+}

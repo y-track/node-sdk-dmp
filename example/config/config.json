@@ -1,0 +1,19 @@
+{
+    "id": 1,
+    "name": "A green door",
+    "price": 12.50,
+    "certificates": [
+    	{
+    		"path": "./config/public_key_xaugust.pem",
+    		"date": "2014-08-21 13:28:06"
+    	},
+    	{
+    		"path": "./config/public_key_sept.pem", 
+    		"date": "2015-08-21 13:28:06"
+    	},
+    	{
+    		"path": "./config/public_key_october.pem",
+    		"date": "2015-09-21 13:28:06"
+    	}
+    ]
+}
