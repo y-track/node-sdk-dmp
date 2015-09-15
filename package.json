@@ -1,6 +1,6 @@
 {
     "version": "0.1.0",
-    "name": "sdk-token",
+    "name": "sdk-dmp",
     "description": "Library to verify token auto-signed",
     "main": "./lib",
     "dependencies": {
