@@ -1,8 +1,6 @@
 var SDK	 		= require('../lib/index').SDK;
 var conf 		= require('./config/config.json');
-var fs          = require('fs');
-var privateKey 	= fs.readFileSync('./config/private_august.key');
-var publicKey 	= fs.readFileSync('./config/public_key_sept.pem');
+var privateKey 	= require('fs').readFileSync('./config/private_october.key');
 
 var tokenContent = {
 	userId: 1,
@@ -10,12 +8,12 @@ var tokenContent = {
 	scopes: "toto"
 };
 
-// var app = new SDK(conf);
+var app = new SDK(conf);
 
-// var accessToken = SDK.signToken(tokenContent, privateKey);
+var accessToken = app.signToken(tokenContent, privateKey);
 
-// var test = SDK.verifyToken(accessToken, conf);
+var testPromise = app.verifyToken(accessToken);
 
-// console.log(test.appId);
-
-// console.log(cert);
+testPromise.then( function (tokenContent) {
+	console.log(tokenContent);
+});
