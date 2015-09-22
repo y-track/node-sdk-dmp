@@ -52,9 +52,9 @@ console.log("Good token - bad scope :")
 console.log(accessToken5);
 
 
-// console.log(app.verifyScopes(accessToken4, 'profilehub::getVisitor'));
-// console.log(app.verifyScopes(accessToken3, 'profilehub::getVisitor'));
-// console.log(app.verifyScopes(accessToken4, 'profilehub::getToto'));
+// console.log(app.verifyScopes(tokenContent4.scopes, 'profilehub::getVisitor'));
+// console.log(app.verifyScopes(tokenContent2.scopes, 'profilehub::getVisitor'));
+// console.log(app.verifyScopes(tokenContent4.scopes, 'profilehub::getToto'));
 // console.log(res);
 
 // var testPromise = app.verifyToken(accessToken);
