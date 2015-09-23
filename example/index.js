@@ -6,7 +6,7 @@ var privateKey2 = require('fs').readFileSync('./config/private_october.key');
 var tokenContent = {
 	account: "000002",
 	appId: "fee8a312946c4a593046ed36d2",
-	scopes: "profilehub::getVisitor,profilehub:toto:getVisitors,profilehub:Toto:getVisitorsFields,profilehub::getRelease,profilehub::plop,profilhub::getVisitor"
+	scopes: "profilehub::getVisitor,profilehub::getVisitors,profilehub::getVisitorsFields,profilehub::getRelease"
 };
 
 var tokenContent2 = {
@@ -18,13 +18,19 @@ var tokenContent2 = {
 var tokenContent4 = {
 	account: "000002",
 	appId: "fee8a312946c4a593046ed36d2",
-	scopes: "profilehub::getVisitor"
+	scopes: "profilehub::getRelease,profilehub::getVisitor,profilehub::getHealthcheck"
 };
 
 var tokenContent5 = {
 	account: "000002",
 	appId: "fee8a312946c4a593046ed36d2",
 	scopes: "profilehub::plop"
+};
+
+var tokenContent6 = {
+	account: "000002",
+	appId: "fee8a312946c4a593046ed36d2",
+	scopes: "profilehub::*"
 };
 
 var app = new SDK(conf["SDK"]);
@@ -39,6 +45,8 @@ var accessToken4 = app.signToken(tokenContent4, privateKey);
 var accessToken5 = app.signToken(tokenContent5, privateKey);
 //bad token
 var accessToken2 = app.signToken(tokenContent, privateKey2);
+//super scope
+var accessToken2 = app.signToken(tokenContent6, privateKey);
 
 console.log("Good Token:");
 console.log(accessToken);
@@ -52,10 +60,10 @@ console.log("Good token - bad scope :")
 console.log(accessToken5);
 
 
-// console.log(app.verifyScopes(tokenContent4.scopes, 'profilehub::getVisitor'));
-// console.log(app.verifyScopes(tokenContent2.scopes, 'profilehub::getVisitor'));
-// console.log(app.verifyScopes(tokenContent4.scopes, 'profilehub::getToto'));
-// console.log(res);
+console.log(app.verifyScopes(tokenContent4.scopes, 'profilehub::getVisitor'));
+console.log(app.verifyScopes(tokenContent2.scopes, 'profilehub::getVisitor'));
+console.log(app.verifyScopes(tokenContent.scopes, 'profilehub::getRelease'));
+console.log(app.verifyScopes(tokenContent6.scopes, 'profilehub::getToto'));
 
 // var testPromise = app.verifyToken(accessToken);
 // var testPromise2 = app.verifyToken(accessToken2);
