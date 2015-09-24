@@ -2,11 +2,12 @@ var SDK	 		= require('../lib/index').SDK;
 var conf 		= require('./config/config.json');
 var privateKey 	= require('fs').readFileSync('./config/private_sept.key');
 var privateKey2 = require('fs').readFileSync('./config/private_october.key');
+var app 		= new SDK(conf["SDK"]);
 
 var tokenContent = {
 	account: "000002",
 	appId: "fee8a312946c4a593046ed36d2",
-	scopes: "profilehub::getVisitor,profilehub::getVisitors,profilehub::getVisitorsFields,profilehub::getRelease"
+	scopes: "profilehub::getVisitor,profilehub::getVisitors,profilehub::getVisitorsFields,profilehub::getRelease,abc,profilehub::getToto"
 };
 
 var tokenContent2 = {
@@ -18,13 +19,13 @@ var tokenContent2 = {
 var tokenContent4 = {
 	account: "000002",
 	appId: "fee8a312946c4a593046ed36d2",
-	scopes: "profilehub::getRelease,profilehub::getVisitor,profilehub::getHealthcheck"
+	scopes: "profilehub::get*,profilehub::getVisitor*,profile*::get*"
 };
 
 var tokenContent5 = {
 	account: "000002",
 	appId: "fee8a312946c4a593046ed36d2",
-	scopes: "profilehub::plop"
+	scopes: "profilehub::p*"
 };
 
 var tokenContent6 = {
@@ -33,7 +34,13 @@ var tokenContent6 = {
 	scopes: "profilehub::*"
 };
 
-var app = new SDK(conf["SDK"]);
+// console.log(app.verifyScopes(tokenContent4.scopes, 'profilehub::getVisitors')); //true
+// console.log(app.verifyScopes(tokenContent2.scopes, 'profilehub::getVisitor')); //false
+// console.log(app.verifyScopes(tokenContent.scopes, 'profilehub::getRelease')); //true
+// console.log(app.verifyScopes(tokenContent6.scopes, 'profilehub::getToto')); // true
+// console.log(app.verifyScopes(tokenContent5.scopes, 'profilehub::getTchou1991')); // false
+// console.log(app.verifyScopes(tokenContent5.scopes, 'profilehub::plop')); // true
+// console.log(app.verifyScopes(tokenContent5.scopes, 'profilehub::postRelease')); // true
 
 //good token
 var accessToken = app.signToken(tokenContent, privateKey);
@@ -46,7 +53,7 @@ var accessToken5 = app.signToken(tokenContent5, privateKey);
 //bad token
 var accessToken2 = app.signToken(tokenContent, privateKey2);
 //super scope
-var accessToken2 = app.signToken(tokenContent6, privateKey);
+var accessToken6 = app.signToken(tokenContent6, privateKey);
 
 console.log("Good Token:");
 console.log(accessToken);
@@ -58,24 +65,6 @@ console.log("Good token - one scope :")
 console.log(accessToken4);
 console.log("Good token - bad scope :")
 console.log(accessToken5);
+console.log("Good token - Super scope :")
+console.log(accessToken6);
 
-
-console.log(app.verifyScopes(tokenContent4.scopes, 'profilehub::getVisitor'));
-console.log(app.verifyScopes(tokenContent2.scopes, 'profilehub::getVisitor'));
-console.log(app.verifyScopes(tokenContent.scopes, 'profilehub::getRelease'));
-console.log(app.verifyScopes(tokenContent6.scopes, 'profilehub::getToto'));
-
-// var testPromise = app.verifyToken(accessToken);
-// var testPromise2 = app.verifyToken(accessToken2);
-
-// testPromise.then( function (tokenContent) {
-// 	console.log(tokenContent);
-// }).catch(function (err) {
-// 	console.log(err);;
-// });
-
-// testPromise2.then( function (tokenContent) {
-// 	console.log(tokenContent);
-// }).catch(function (err) {
-// 	console.log(err);;
-// });
