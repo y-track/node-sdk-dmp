@@ -1,0 +1,19 @@
+{
+    "SDK" : {
+        "certificates": [
+        	{
+        		"path": "./config/public_key_xaugust.pem",
+        		"date": "2014-08-21 13:28:06"
+        	},
+        	{
+        		"path": "./config/public_key_sept.pem", 
+        		"date": "2015-08-21 13:28:06"
+        	},
+        	{
+        		"path": "./config/public_key_october.pem",
+        		"date": "2015-08-21 13:28:06"
+        	}
+        ]
+    }
+
+}
