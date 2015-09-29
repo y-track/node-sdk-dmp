@@ -5,9 +5,9 @@ var privateKey2 = require('fs').readFileSync('./config/private_october.key');
 var app 		= new SDK(conf["SDK"]);
 
 var tokenContent = {
-	account: "000002",
+	account: "999999",
 	appId: "fee8a312946c4a593046ed36d2",
-	scopes: "profilehub::getVisitor,profilehub::getVisitors,profilehub::getVisitorsFields,profilehub::getRelease,abc,profilehub::getToto"
+	scopes: "toto::plop"
 };
 
 // good token
