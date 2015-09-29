@@ -1,6 +1,6 @@
 # node-sdk-dmp
 
-### [15-09-2015] First Version
+### [30-09-2015] First Version
 
 This first version allows to verify the validity of a token.
 
@@ -8,11 +8,11 @@ This first version allows to verify the validity of a token.
 
 This folder contains an example application to test the SDK.
 
-### SDK
+## Get Started
 
 #### As soon ...
 ````
-npm install node-sdk-dmp
+npm install sdk-dmp
 ````
 #### To use 
 
@@ -62,6 +62,7 @@ test.then( function (tokenContent) {
 
 > Return true if scope is index of scopesToken else return false;
 
+__Example :__
 ```
 console.log(sdk.verifyScopes(accessTokenDecoded.scopes, 'an scope'));
 ```
