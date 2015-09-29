@@ -10,71 +10,13 @@ var tokenContent = {
 	scopes: "profilehub::getVisitor,profilehub::getVisitors,profilehub::getVisitorsFields,profilehub::getRelease,abc,profilehub::getToto"
 };
 
-var tokenContent2 = {
-	account: "666666",
-	appId: "fee8a312946c4a593046ed36d2",
-	scopes: "profilehub::*"
-};
-
-var tokenContent4 = {
-	account: "000002",
-	appId: "fee8a312946c4a593046ed36d2",
-	scopes: "profilehub::get*,profilehub::getVisitor*,profile*::get*"
-};
-
-var tokenContent5 = {
-	account: "000002",
-	appId: "fee8a312946c4a593046ed36d2",
-	scopes: "profilehub::post*"
-};
-
-var tokenContent6 = {
-	account: "000002",
-	appId: "fee8a312946c4a593046ed36d2",
-	scopes: "profilehub::*"
-};
-
-// var accessToken = app.signToken(tokenContent2, privateKey);
-// console.log(accessToken);
-// console.log("0000002");
-// var accessToken6 = app.signToken(tokenContent6, privateKey);
-// console.log(accessToken6);
-// console.log(app.verifyScopes(tokenContent4.scopes, 'profilehub::getVisitors')); //true
-// // console.log(app.verifyScopes(tokenContent2.scopes, 'profilehub::getVisitor')); //
-// console.log(app.verifyScopes(tokenContent.scopes, 'profilehub::getRelease')); //true
-// // console.log(app.verifyScopes(tokenContent6.scopes, 'profilehub::getToto')); // true
-// console.log(app.verifyScopes(tokenContent5.scopes, 'profilehub::getTchou1991')); // false
-// console.log(app.verifyScopes(tokenContent5.scopes, 'profilehub::plop')); // true
-// console.log(app.verifyScopes(tokenContent5.scopes, 'profilehub::postRelease')); // true
-
-// //good token
+// good token
 var accessToken = app.signToken(tokenContent, privateKey);
-// //bad account
-// var accessToken3 = app.signToken(tokenContent2, privateKey);
-// //one scope
-// var accessToken4 = app.signToken(tokenContent4, privateKey);
-// //bad scope
-// var accessToken5 = app.signToken(tokenContent5, privateKey);
-// //bad token
-// var accessToken2 = app.signToken(tokenContent, privateKey);
-// //super scope
-var accessToken6 = app.signToken(tokenContent6, privateKey2);
-
-// console.log("Good Token:");
-// console.log(accessToken);
-// console.log("Good Token but wrong account:");
-// console.log(accessToken3);
-// console.log("Good Token - getCounters :")
-// console.log(accessToken2);
-// console.log("Good token - one scope :")
-// console.log(accessToken4);
-// console.log("Good token - get* :")
-// console.log(accessToken5);
-// console.log("Good token - Super scope :")
-// console.log(accessToken6);
+// bad token
+var accessToken2 = app.signToken(tokenContent6, privateKey2);
 
 var testPromise = app.verifyToken(accessToken);
-var testPromise2 = app.verifyToken(accessToken6);
+var testPromise2 = app.verifyToken(accessToken2);
 
 testPromise.then( function (tokenContent) {
 	console.log(tokenContent);
