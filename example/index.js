@@ -7,13 +7,18 @@ var app 		= new SDK(conf["SDK"]);
 var tokenContent = {
 	account: "999999",
 	appId: "fee8a312946c4a593046ed36d2",
-	scopes: "toto::plop"
+	scopes: ["toto::plop", "toto:*:*"]
 };
 
 // good token
 var accessToken = app.signToken(tokenContent, privateKey);
 // bad token
-var accessToken2 = app.signToken(tokenContent6, privateKey2);
+var accessToken2 = app.signToken(tokenContent, privateKey2);
+
+console.log(app.verifyScopes(tokenContent.scopes, "toto::plop"));
+console.log(app.verifyScopes(tokenContent.scopes, "toto::*"));
+console.log(app.verifyScopes(tokenContent.scopes, "titi:*:*"));
+
 
 var testPromise = app.verifyToken(accessToken);
 var testPromise2 = app.verifyToken(accessToken2);
@@ -21,11 +26,11 @@ var testPromise2 = app.verifyToken(accessToken2);
 testPromise.then( function (tokenContent) {
 	console.log(tokenContent);
 }).catch(function (err) {
-	console.log(err);;
+	console.log(err);
 });
 
 testPromise2.then( function (tokenContent) {
 	console.log(tokenContent);
 }).catch(function (err) {
-	console.log(err);;
+	console.log(err);
 });
