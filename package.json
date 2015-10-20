@@ -1,11 +1,12 @@
 {
-  "version": "0.1.3",
+  "version": "0.1.7",
   "name": "sdk-dmp",
   "description": "Library to verify token auto-signed",
   "main": "./lib",
   "dependencies": {
     "es6-promise": "^2.x.x",
-    "jsonwebtoken": "^5.x.x"
+    "jsonwebtoken": "^5.x.x",
+    "type-of-is": "^3.4.0"
   },
   "author": "Angie Laurenti <angie.laurenti@ysance.com>",
   "readmeFilename": "README.md"
