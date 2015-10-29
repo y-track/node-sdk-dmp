@@ -9,5 +9,14 @@
     "type-of-is": "^3.4.0"
   },
   "author": "Angie Laurenti <angie.laurenti@ysance.com>",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/y-track/node-sdk-dmp.git",
+    "web": "https//github.com/y-track/node-sdk-dmp"
+  },
+  "homepage": "https://github.com/y-track/node-sdk-dmp",
+  "bugs": {
+    "url": "https://github.com/y-track/node-sdk-dmp/issues/"
+  }
 }
